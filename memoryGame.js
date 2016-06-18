@@ -17,7 +17,7 @@ $(function () {
 
     const colorOrig = 'blue';
     const numOfCols = 12;
-    const numOfRows = 3;
+    const numOfRows = 4;
     const glyphOrig = 'glyphicon-tree-deciduous';
     const glyphs = [
         'glyphicon-plane',
@@ -361,12 +361,12 @@ $(function () {
         if (playerOneTurn) {
             let player = $('#player1Score');
             console.log(`Player 1 Score:${player.text()}`);
-            player.text(Number(player.text()) + 1);
+            player.text(Number(player.text()) + 10);
         }
         else {
             let player = $('#player2Score');
             console.log(`Player 2 Score:${player.text()}`);
-            player.text(Number(player.text()) + 1);
+            player.text(Number(player.text()) + 10);
         }
     }
 
@@ -376,9 +376,19 @@ $(function () {
         $('#player1Score,#player2Score').text('0');
     }
 
+    function resetVariables() {
+        playerOneTurn = true;
+        inTurn = false;
+        firstGlyph = 0;
+        secondGlyph = 0;
+    }
+
     function resetGame() {
         $('section#gameGame').children('div.container').children().remove();
+        $('#gameAlert').removeClass('alert-success alert-warning alert-danger').addClass('alert-info');
+        $('#gameAlert').text(`Hello! Match the Glyphs to win!`);
         resetUserScore();
+        resetVariables();
         createRows(numOfRows);
         // createRow();
     }
@@ -386,23 +396,35 @@ $(function () {
     function checkEndGame() {
         let player1Score = Number($('#player1Score').text());
         let player2Score = Number($('#player2Score').text());
-        if (player1Score + player2Score >= (numOfCols * numOfRows) / 2) {
+        if (player1Score/10 + player2Score/10 >= (numOfCols * numOfRows) / 2) {
             if (player1Score > player2Score) {
-                alert(`Good Game! Player 1 Wins!`);
+                $('#gameAlert').text(`Good Game! Player 1 Wins!`);
+                $('#gameAlert').removeClass('alert-info alert-warning alert-danger').addClass('alert-success');
+                // alert(`Good Game! Player 1 Wins!`);
             }
             else if (player1Score < player2Score) {
-                alert(`Good Game! Player 2 Wins!`);
+                $('#gameAlert').text(`Good Game! Player 2 Wins!`);
+                $('#gameAlert').removeClass('alert-info alert-warning alert-danger').addClass('alert-success');
+                // alert(`Good Game! Player 2 Wins!`);
             }
             else {
-                alert(`Good Game! Its a Tie!`);
+                $('#gameAlert').text(`Good Game! Its a Tie!`);
+                $('#gameAlert').removeClass('alert-info alert-success alert-danger').addClass('alert-warning');
+                // alert(`Good Game! Its a Tie!`);
             }
-            resetGame();
+            // resetGame();
         }
         console.log(player1Score, player2Score);
         // $('span.glyphicon-eye-open').each((index, element) => {
         //     // console.log(index, $(element).data('behind'));
         // });
     }
+
+    $('#newGameButton').on('click', function () {
+        console.log("New Game");
+        resetGame();
+
+    });
 
     $('div.container').on('click', '.' + glyphOrig, function () {
         if (lock) {
@@ -445,7 +467,6 @@ $(function () {
                 secondGlyph.addClass(glyphOrig);
                 secondGlyph.css('color', colorOrig);
             }
-
         }, 500);
         // console.log(secondGlyph.data('behind'));
         // switch (inTurn) {
@@ -464,9 +485,6 @@ $(function () {
         //     //     break;
         // }
     });
-
-    resetGame();
-
     // function updateTotal() {
     //     // console.log($('ul.cart li.item').data('price'));
     //     let total = 0;
