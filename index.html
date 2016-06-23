@@ -1,21 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="store">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        p {
-            color: black;
-        }
-    </style>
+    <title>Our Store!!!</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
-<!--<p id="foo">First</p>-->
-<input type="text"><button type="button">Submit</button>
-<ul>
 
-</ul>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="index.js"></script>
+<div class="container" ng-controller="StoreController as vm">
+    <div class="row" ng-show="vm.loaded">
+        <!--UI-ROUTE-->
+        <div class="col-sm-7">
+            <ng-view></ng-view>
+        </div>
+        <div class="col-sm-5">
+            <cart items="vm.cart"></cart>
+        </div>
+    </div>
+</div>
+
+<script src="node_modules/angular/angular.js"></script>
+<script src="node_modules/angular-route/angular-route.js"></script>
+<script src="js/store.js"></script>
+<script src="js/cart.component.js"></script>
 </body>
 </html>
