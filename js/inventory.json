@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "title": "Dairy",
+    "inventory": [
+      {
+        "id": "1",
+        "title": "Milk",
+        "price": 1.2,
+        "img": "http://placekitten.com/300/200"
+      },
+      {
+        "id": "2",
+        "title": "Cheese",
+        "price": 2.1,
+        "img": "http://placekitten.com/g/300/200"
+      },
+      {
+        "id": "3",
+        "title": "Yogurt",
+        "price": 3,
+        "img": "http://placekitten.com/300/250"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Fruits",
+    "inventory": [
+      {
+        "id": "4",
+        "title": "Apple",
+        "price": 1.2,
+        "img": "http://placekitten.com/300/200"
+      },
+      {
+        "id": "5",
+        "title": "Orange",
+        "price": 2.1,
+        "img": "http://placekitten.com/g/300/200"
+      },
+      {
+        "id": "6",
+        "title": "Banana",
+        "price": 3,
+        "img": "http://placekitten.com/300/250"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Vegetables",
+    "inventory": [
+      {
+        "id": "7",
+        "title": "Carrot",
+        "price": 1.2,
+        "img": "http://placekitten.com/300/200"
+      },
+      {
+        "id": "8",
+        "title": "Potato",
+        "price": 2.1,
+        "img": "http://placekitten.com/g/300/200"
+      },
+      {
+        "id": "9",
+        "title": "Tomato?",
+        "price": 3,
+        "img": "http://placekitten.com/300/250"
+      }
+    ]
+  }
+]

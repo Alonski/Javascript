@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Super Angular!!!</title>
+    <style>
+        .ng-cloak {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<p>
+    Angular is an MVC framework.
+</p>
+
+<div ng-if="false">
+    LOADING....
+</div>
+
+<div id="foo" class="ng-cloak">
+
+    <!-- do not actually use ng-init!!! -->
+    <ul ng-init="factor=0.9; products = [
+            {name:'milk', price:10},
+            {name:'cheese', price:20},
+            {name:'apple', price:12}
+        ]">
+
+        <input type="number" step="0.1" ng-model="factor">
+
+
+        <div>
+            <input type="text" ng-model="name">
+            <input type="number" ng-model="price">
+            <button ng-click="products.push({name:name, price:price})">Add</button>
+        </div>
+
+        <li ng-repeat="item in products">
+            [{{ $index }}]
+            {{item.name}}: ${{factor * item.price |number:2}}
+            <button ng-click="products.splice($index, 1)">Delete</button>
+        </li>
+    </ul>
+
+</div>
+<script src="node_modules/angular/angular.js"></script>
+<!--<script src="app.js"></script>-->
+</body>
+</html>

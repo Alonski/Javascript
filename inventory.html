@@ -1,0 +1,19 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Inventory</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="product in $ctrl.inventory.inventory">
+                <button class="btn button-success" ng-click="vm.addToCart(product)"><i class="glyphicon glyphicon-plus"></i></button>
+                <span class="badge">{{product.price|currency}}</span><a href="#/inventory/{{$ctrl.inventory.id}}/product/{{product.id}}/">{{product.title}}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="panel-footer">
+        <a href="#/">
+            <button class="btn btn-primary btn-sm">Back</button>
+        </a>
+    </div>
+
+</div>

@@ -1,0 +1,14 @@
+<!--{{$ctrl}}-->
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">My Cart</h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="item in $ctrl.items">
+            <span class="badge">{{item.product.price*item.amount|currency}}</span>
+            <button class="btn button-danger btn-sm" ng-click="$ctrl.checkDelete(item, 'click')"><i class="glyphicon glyphicon-minus"></i></button>
+            {{item.product.title}}*<input type="number" min="0" ng-model="item.amount" ng-change="$ctrl.checkDelete(item, 'change')">
+        </li>
+        <li class="list-group-item">Total: {{$ctrl.total()|currency}}</li>
+    </ul>
+</div>

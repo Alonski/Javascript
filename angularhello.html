@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mymodule">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular Hellow World</title>
+    <style>
+        .ng-cloak {
+            display: none;
+        }
+
+        .ng-scope {
+            border: 1px solid red;
+        }
+
+        .xxx {
+            width: 100px;
+            /*float: left;*/
+            /*background: black;*/
+        }
+
+        .board {
+            margin: 0 10% 0 10%;
+            width: 80%;
+            height: 80%;
+        }
+
+        .cell:hover {
+            background-color: #8c8c8c;
+        }
+
+        .cell {
+            width: 100px;
+            height: 100px;
+            background-color: #9d9d9d;
+            margin: 20px;
+            border: double;
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+
+<div ng-if="false">
+    LOADING....
+</div>
+
+<div id="foo" class="container ng-cloak">
+    <!--<div>-->
+    <!--{{x}}-->
+    <!--</div>-->
+    <!--<div ng-controller="CalcController">-->
+    <!--{{x}}-->
+    <!--<button ng-click="x=x+1">+</button>-->
+    <!--<button ng-click="f()">f()</button>-->
+    <!--</div>-->
+    <div ng-controller="MineSweepController">
+        <!--<p ng-repeat="row in board">-->
+        <!--<span ng-repeat="cell in row">{{cell.mine}}</span>-->
+        <!--</p>-->
+        <hr>
+        <table class="board" ng-repeat="row in board">
+            <td class="cell" ng-repeat="cell in row" ng-click="clicked($event, $parent.$index, $index)"></td>
+        </table>
+    </div>
+    <!--<ul ng-init="total = 0; values = []">-->
+    <!--<ul>-->
+    <!--<div>-->
+    <!--<input type="number" ng-model="v">-->
+    <!--<button ng-click="values.push({v:v});-->
+    <!--total = total + v;-->
+    <!--v=''">Add-->
+    <!--</button>-->
+    <!--</div>-->
+
+    <!--<li ng-repeat="item in values">-->
+    <!--{{item.v}}-->
+    <!--<button ng-click="$parent.total = $parent.total - item.v; values.splice($index, 1);">-</button>-->
+    <!--</li>-->
+    <!--<li>Total: {{total}}</li>-->
+    <!--</ul>-->
+    <!--<button ng-click="showMessage(3)">Show</button>-->
+</div>
+
+<!--<select ng-model="icon">-->
+<!--<option value="star">Star</option>-->
+<!--<option value="trash">Trash</option>-->
+<!--<option value="globe">Globe</option>-->
+<!--</select>-->
+<!--{{ icon }}-->
+
+<script src="node_modules/angular/angular.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
